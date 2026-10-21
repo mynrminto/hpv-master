@@ -1,0 +1,836 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>触って覚える！ HPVワクチンマスター</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="HPVワクチンを、小6・中3・高1の3症例で触って学ぶ。接種率と効果のデータ、接種の時期と回数、保護者の不安への答え方、安全な接種手技、接種後の症状への向き合い方まで。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Barlow+Semi+Condensed:wght@400;500;600;700&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap">
+<style>
+/* 「触って覚える！」シリーズの見た目（血液検査マスター・アトピー性皮膚炎マスターと同じ）。丸ゴシック・クリームの地・太い紺の輪郭線・下側の厚み・章ごとの色の帯。ライトテーマ固定。 */
+:root{
+  color-scheme:light;
+  --body:#FFF3E4;
+  --deck:linear-gradient(168deg,#FFEFD6 0%,#FFE0EC 46%,#E3ECFF 100%);
+  --sheet:#FFFFFF; --panel2:#FFF8EE;
+  --ink:#262745; --ink-2:#55577A; --ink-3:#767898; --line:#F0DFD0;
+  --accent:#FF5E8A; --accent-soft:#FFF0F4;
+  --blue:#5B7CFA; --blue-soft:#EEF2FF;
+  --red:#E0334F; --red-soft:#FFECEF;
+  --ok:#0B8F66; --ok-soft:#E8FBF3; --warn:#B86A00; --warn-soft:#FFF4DE;
+  --gline:#2E2545; --glip:#C3B4D6;
+  --chap:#5B7CFA;
+  --skin:#F8DCC8; --sk1:#F4B7A2; --sk2:#EC8676; --sk3:#D24A5A;
+  --f-body:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN","Hiragino Sans","Noto Sans JP",system-ui,sans-serif;
+  --f-num:"Barlow Semi Condensed","Roboto Condensed","Helvetica Neue",Arial,sans-serif;
+  --f-logo:"Dela Gothic One","M PLUS Rounded 1c","Hiragino Maru Gothic ProN",sans-serif;
+  --r:18px;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+[data-chap="0"]{--chap:#FF8A3D} [data-chap="1"]{--chap:#4FA8FF} [data-chap="2"]{--chap:#8B6BFF} [data-chap="3"]{--chap:#12C48B} [data-chap="4"]{--chap:#1FA7B5}
+*{box-sizing:border-box}
+html{background:var(--body)}
+html,body{min-height:100%;max-width:100%;overflow-x:hidden}@supports(overflow:clip){html,body{overflow-x:clip}}
+img,svg{max-width:100%}
+[hidden]{display:none!important}
+body{margin:0;background:var(--deck) fixed;background-color:var(--body);color:var(--ink);font:500 15px/1.7 var(--f-body);-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+button{font:inherit;color:inherit;touch-action:manipulation}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+h1,h2,h3{font-weight:800;text-wrap:balance;margin:0;line-height:1.35}
+p{margin:0}
+.wrap{max-width:640px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 96px}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums;font-weight:600}
+.note{font-size:12.5px;color:var(--ink-3);line-height:1.6}
+.sheet{background:var(--sheet);border:3px solid var(--gline);border-radius:var(--r);box-shadow:0 4px 0 var(--glip);padding:16px;min-width:0}
+.sheet h3{font-size:16.5px}
+.stack{display:flex;flex-direction:column;gap:12px}
+.sec{padding-top:16px;display:flex;flex-direction:column;gap:16px}
+.lbl{font-size:12.5px;font-weight:800;color:var(--ink-3)}
+.q{font-size:16px}
+
+/* ---------- タイトル ---------- */
+.title{position:fixed;inset:0;z-index:90;display:grid;place-items:center;overflow:auto;
+  padding:max(12px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(12px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+  background:url("assets/img/bg_title_hpv.webp") center/cover no-repeat,url("assets/img/bg_clinic.webp") center/cover no-repeat,#FFF1E4}
+.title::before{content:"";position:fixed;inset:0;background:linear-gradient(180deg,rgba(255,248,238,.30) 0%,rgba(255,240,244,.55) 55%,rgba(255,243,228,.88) 100%);pointer-events:none}
+.tstage{position:relative;width:min(440px,100%);display:flex;flex-direction:column;align-items:center;gap:10px}
+.tlogo{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:4px;text-align:center}
+.tlogoimg{width:min(92vw,440px);height:auto;filter:drop-shadow(0 6px 10px rgba(60,30,80,.25));animation:pop .6s both}
+.tlogo .series{font:400 clamp(34px,10.5vw,50px)/1.1 var(--f-logo);color:#fff;letter-spacing:.02em;-webkit-text-stroke:7px var(--gline);paint-order:stroke fill;text-shadow:0 5px 0 rgba(46,37,69,.35);white-space:nowrap}
+.k1{color:#FFC53D}.k2{color:#FF7FA4}.k3{color:#4FD8B4}.k4{color:#7FA0FF}
+.tlogo .name{display:inline-block;font:800 clamp(18px,5.4vw,24px)/1.2 var(--f-body);color:#fff;letter-spacing:.08em;background:linear-gradient(180deg,#FF9A6B,#F0607A);border:3px solid var(--gline);border-radius:999px;padding:5px 20px 6px;box-shadow:0 4px 0 rgba(46,37,69,.3);text-shadow:0 2px 0 rgba(46,37,69,.45)}
+.tlogo .tag{font-size:12px;font-weight:800;color:var(--ink-2);background:rgba(255,255,255,.9);border-radius:999px;padding:2px 12px}
+.tcast{display:flex;align-items:flex-end;justify-content:center;width:100%;height:clamp(150px,27vh,230px);position:relative}
+.tcast img{display:block;height:100%;width:auto;filter:drop-shadow(0 8px 10px rgba(60,30,80,.28))}
+.tcast .tm{height:56%;margin-right:-14px;transform:translateY(-22%) rotate(-4deg);animation:puku 3.6s ease-in-out infinite}
+.tcast .tn{height:86%;margin-left:-22px;position:relative;z-index:1}
+.tcast .tube{height:44%;width:auto;margin-left:-10px;filter:drop-shadow(0 6px 8px rgba(60,30,80,.22))}
+@keyframes puku{0%,100%{transform:translateY(-22%) rotate(-4deg) scale(.95)}45%{transform:translateY(-24%) rotate(-4deg) scale(1.05)}}
+.tsay{position:relative;font-size:13.5px;line-height:1.6;font-weight:700;text-align:center;background:#fff;border:3px solid var(--gline);border-radius:18px;padding:9px 14px;max-width:100%;box-shadow:0 4px 0 rgba(46,37,69,.22)}
+.tsay::after{content:"";position:absolute;left:52%;top:-10px;width:14px;height:14px;background:#fff;border-left:3px solid var(--gline);border-top:3px solid var(--gline);transform:rotate(45deg)}
+.tmenu{display:flex;flex-direction:column;gap:9px;width:100%;margin-top:4px}
+.tbtn{display:flex;align-items:center;gap:12px;text-align:left;padding:9px 14px 9px 9px;border-radius:20px;width:100%;background:#fff;border:3px solid var(--gline);box-shadow:0 5px 0 var(--glip);cursor:pointer;transition:transform .06s,box-shadow .06s}
+.tbtn:active{transform:translateY(5px);box-shadow:none}
+.tbtn img{flex:none;width:44px;height:44px}
+.tbtn b{display:block;font-size:16px;font-weight:800;line-height:1.3}
+.tbtn i{display:block;font-style:normal;font-size:12px;color:var(--ink-3);font-weight:700}
+.tbtn.go{background:linear-gradient(180deg,#FFC24D,#FF8A3D);box-shadow:0 5px 0 #C4560F;color:#fff}
+.tbtn.go b{text-shadow:0 2px 0 rgba(46,37,69,.4)} .tbtn.go i{color:#FFF4E4}
+.tfoot{display:flex;align-items:center;gap:10px;width:100%;margin-top:4px;background:rgba(255,255,255,.92);border:3px solid var(--gline);border-radius:999px;padding:5px 5px 5px 14px}
+.tprog{flex:1;height:12px;border-radius:999px;background:#F3E6EC;overflow:hidden;border:2px solid var(--gline)}
+.tprog i{display:block;height:100%;width:0;background:linear-gradient(90deg,#FF5E8A,#FFB020 45%,#12C48B)}
+.tpct{font:700 15px var(--f-num);color:var(--ink-2);min-width:3.6em;text-align:right}
+.sndbtn{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#fff;border:3px solid var(--gline);box-shadow:0 3px 0 var(--glip);cursor:pointer;padding:0}
+.sndbtn:active{transform:translateY(3px);box-shadow:none}
+.sndbtn svg{width:20px;height:20px}
+.sndbtn[aria-pressed="false"]{background:#F1EEF6}
+@media(max-height:680px){.tcast{height:120px}.tsay{display:none}.tbtn{padding:6px 12px 6px 7px}.tbtn img{width:36px;height:36px}.tbtn i{display:none}}
+
+/* ---------- モーダル・演出 ---------- */
+.modal{position:fixed;inset:0;z-index:100;background:rgba(50,30,60,.42);display:flex;align-items:center;justify-content:center;padding:16px;animation:fadein .16s ease-out}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.mbox{background:#fff;width:min(560px,100%);max-height:88%;overflow:auto;border:4px solid var(--gline);border-radius:26px;box-shadow:0 10px 0 rgba(46,37,69,.18),0 26px 60px rgba(80,40,90,.35);animation:pop .2s cubic-bezier(.2,1.3,.5,1)}
+@keyframes pop{from{transform:scale(.94) translateY(8px);opacity:0}to{transform:none;opacity:1}}
+.mhead{position:sticky;top:0;display:flex;align-items:center;gap:10px;padding:12px 14px;background:linear-gradient(180deg,#FF9A6B,#F0607A);border-bottom:4px solid var(--gline)}
+.mhead h3{flex:1;color:#fff;font-size:17px;text-shadow:0 2px 0 rgba(46,37,69,.45)}
+.mhead button{padding:5px 14px;border-radius:999px;background:#fff;border:3px solid var(--gline);font-weight:800;font-size:13px;box-shadow:0 3px 0 rgba(46,37,69,.35);cursor:pointer}
+.mbody{padding:16px;background:linear-gradient(180deg,#FFF9F3,#FFF1F5);font-size:14px;display:flex;flex-direction:column;gap:10px}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:120;overflow:hidden}
+#fx i{position:absolute;width:9px;height:14px;border-radius:2px;animation:fall 1.5s cubic-bezier(.2,.6,.5,1) forwards}
+@keyframes fall{0%{transform:translate3d(0,0,0) rotate(0);opacity:1}100%{transform:translate3d(var(--dx),var(--dy),0) rotate(var(--rot));opacity:0}}
+.toast{position:fixed;left:50%;top:18%;transform:translateX(-50%);z-index:130;pointer-events:none;display:flex;align-items:center;gap:10px;max-width:calc(100vw - 32px);background:linear-gradient(135deg,#FF5E8A,#FFB020);color:#fff;font-weight:800;font-size:15px;line-height:1.35;border:3px solid var(--gline);padding:6px 18px 6px 6px;border-radius:999px;box-shadow:0 10px 30px rgba(190,60,110,.35);animation:toast 2.2s ease-out forwards;text-shadow:0 2px 0 rgba(46,37,69,.35)}
+.toast img{width:44px;height:44px;border-radius:50%;background:#E8FBF3;border:2px solid var(--gline);object-fit:cover;flex:none}
+@keyframes toast{0%{opacity:0;transform:translate(-50%,10px) scale(.9)}12%{opacity:1;transform:translate(-50%,0)}80%{opacity:1;transform:translate(-50%,0)}100%{opacity:0;transform:translate(-50%,-10px)}}
+
+/* ---------- いぶき先生 ---------- */
+.coach{display:flex;gap:10px;align-items:flex-start}
+.cav{flex:none;width:46px;height:46px;border-radius:50%;overflow:hidden;background:#E8FBF3;border:3px solid var(--gline);box-shadow:0 3px 0 var(--glip)}
+.cav img{display:block;width:100%;height:100%;object-fit:cover}
+.cbub{position:relative;flex:1;min-width:0;background:var(--panel2);border:2.5px solid var(--gline);border-radius:16px;padding:8px 12px 9px;font-size:14px;line-height:1.75}
+.cbub::before{content:"";position:absolute;left:-9px;top:14px;width:12px;height:12px;background:var(--panel2);border-left:2.5px solid var(--gline);border-bottom:2.5px solid var(--gline);transform:rotate(45deg)}
+.cwho{font-size:11.5px;font-weight:800;letter-spacing:.04em;color:var(--chap);margin-bottom:1px}
+.coach.ok .cbub,.coach.ok .cbub::before{background:var(--ok-soft)}
+.coach.ng .cbub,.coach.ng .cbub::before{background:var(--red-soft)}
+.coach.ok .cwho{color:var(--ok)} .coach.ng .cwho{color:var(--red)}
+.coach.nurse .cav{background:#FFE6EF}.coach.nurse .cwho{color:#E0507E}
+.cbub b{font-weight:800}
+
+/* ---------- ヘッダー ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:#fff;border-bottom:3px solid var(--gline);box-shadow:0 4px 0 rgba(46,37,69,.12)}
+.top::before{content:"";display:block;height:5px;background:var(--chap)}
+.top .wrap{padding-block:8px 10px;display:flex;flex-direction:column;gap:8px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:#fff}
+.bar{display:flex;align-items:center;gap:8px}
+.back{flex:none;border:3px solid var(--gline);background:#fff;border-radius:999px;padding:3px 12px 3px 9px;font-weight:800;font-size:13px;cursor:pointer;box-shadow:0 3px 0 var(--glip)}
+.back:active{transform:translateY(3px);box-shadow:none}
+.bar h1{font-size:17px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.badge{flex:none;font:700 12px/1 var(--f-num);letter-spacing:.04em;padding:5px 9px;border-radius:999px;background:var(--chap);color:#fff;border:2px solid var(--gline)}
+.stepper{display:flex;gap:5px}
+.stepper button{flex:1;height:12px;border-radius:999px;background:#F3E6EC;border:2px solid var(--gline);padding:0;cursor:pointer}
+.stepper button.done{background:var(--chap)}
+.stepper button.now{background:#FFC53D}
+.stephead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.stepno{font:700 13px var(--f-num);color:#fff;background:var(--chap);border:2px solid var(--gline);border-radius:999px;padding:1px 10px;letter-spacing:.04em}
+.stephead h2{font-size:20px}
+
+/* ---------- ホーム ---------- */
+.home-hero{position:relative;margin-top:14px;padding:14px 128px 14px 16px;background:#fff;border:3px solid var(--gline);border-radius:22px;box-shadow:0 5px 0 var(--glip);overflow:hidden;min-height:160px}
+.home-hero .eyebrow{font:400 15px/1.2 var(--f-logo);color:#E0507E;letter-spacing:.02em}
+.home-hero h1{font-size:25px;margin-top:2px;word-break:keep-all}
+.home-hero p{color:var(--ink-2);margin:6px 0 0;font-size:13.5px;line-height:1.6}
+.home-hero .hdoc{position:absolute;right:4px;bottom:-40px;height:200px;width:auto;pointer-events:none}
+.hrow{display:flex;gap:8px;margin-top:10px;align-items:center;flex-wrap:wrap}
+.hbtn{border:3px solid var(--gline);background:var(--panel2);border-radius:999px;padding:3px 14px;font-weight:800;font-size:13px;cursor:pointer;box-shadow:0 3px 0 var(--glip)}
+.hbtn:active{transform:translateY(3px);box-shadow:none}
+.bigprog{display:flex;align-items:center;gap:10px;margin-top:10px}
+.bigprog .bar2{flex:1;height:16px;border-radius:999px;background:#fff;border:3px solid var(--gline);overflow:hidden}
+.bigprog .bar2 i{display:block;height:100%;background:linear-gradient(90deg,#FF5E8A,#FFB020 45%,#12C48B)}
+.bigprog .pct{font:700 18px var(--f-num);flex:none}
+.cat{margin-top:22px}
+.cat h2{display:flex;align-items:center;gap:8px;font-size:15px;color:#fff;background:var(--chap);border:3px solid var(--gline);border-radius:16px;padding:7px 12px;box-shadow:0 4px 0 rgba(46,37,69,.22);margin-bottom:10px;text-shadow:0 1px 0 rgba(46,37,69,.35)}
+.list{display:flex;flex-direction:column;gap:9px}
+.item{display:flex;align-items:center;gap:11px;padding:10px 12px 10px 10px;background:var(--sheet);border:3px solid var(--gline);border-left:8px solid var(--chap);box-shadow:0 4px 0 var(--glip);border-radius:16px;text-align:left;width:100%;cursor:pointer;transition:transform .06s,box-shadow .06s}
+.item:active{transform:translateY(4px);box-shadow:none}
+.item .ic{width:54px;height:54px;flex:none;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--chap) 14%,#fff);border:2px solid var(--gline);overflow:hidden;font:800 20px var(--f-body);color:var(--chap)}
+.item .ic img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.item .tx{flex:1;min-width:0}
+.item b{display:block;font-size:15px;font-weight:800;line-height:1.4}
+.item small{display:block;color:var(--ink-3);font-size:12px;line-height:1.5;font-weight:700}
+.item.done{background:linear-gradient(90deg,rgba(43,217,160,.14),#fff 70%)}
+.stars{font-size:15px;letter-spacing:1px;color:#FFB020;-webkit-text-stroke:.6px var(--gline);white-space:nowrap}
+.stars .off{color:#EFE6F2}
+
+/* ---------- ボタン・選択肢 ---------- */
+.btn{border:3px solid var(--gline);background:#fff;border-radius:999px;padding:8px 18px;font-weight:800;cursor:pointer;box-shadow:0 4px 0 var(--glip);transition:transform .06s,box-shadow .06s}
+.btn:active{transform:translateY(4px);box-shadow:none}
+.btn.solid{background:linear-gradient(180deg,#FFC24D,#FF8A3D);color:#fff;box-shadow:0 4px 0 #C4560F;text-shadow:0 2px 0 rgba(46,37,69,.4)}
+.btn.sm{padding:4px 14px;font-size:13.5px}
+.btn:disabled{opacity:.4;cursor:default;transform:none}
+.nav{display:flex;gap:10px;justify-content:space-between;margin-top:4px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{background:#fff;border:2.5px solid var(--gline);border-radius:14px;padding:9px 12px;text-align:left;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 3px 0 var(--glip)}
+.opt:active{transform:translateY(3px);box-shadow:none}
+.opt[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent)}
+.opt.right{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+.opt.wrong{background:var(--red-soft);border-color:var(--red);color:var(--red)}
+.opt.missed{border-style:dashed;border-color:var(--ok)}
+.opt:disabled{cursor:default;transform:none}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:2.5px solid var(--gline);background:#fff;border-radius:99px;padding:3px 12px;font-size:13px;font-weight:800;cursor:pointer;box-shadow:0 2px 0 var(--glip)}
+.chip[aria-pressed="true"]{background:var(--chap);color:#fff}
+.chip.right{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+.chip.wrong{background:var(--red-soft);border-color:var(--red);color:var(--red)}
+.chip:disabled{cursor:default}
+.mrow{display:flex;flex-direction:column;gap:6px;padding:10px 0;border-bottom:2px dashed var(--line)}
+.mrow:last-of-type{border-bottom:0}
+.mrow > b{font-size:14px}
+.fb:empty{display:none}
+.tipbox{padding:10px 12px;border-radius:14px;background:var(--blue-soft);border:2.5px solid var(--gline);font-size:13.5px}
+.tipbox b{font-weight:800}
+
+/* ---------- 問診 ---------- */
+.scene{position:relative;aspect-ratio:16/9;max-width:100%;border:3px solid var(--gline);border-radius:20px;overflow:hidden;background:#FFF1E4 center/cover no-repeat;box-shadow:0 4px 0 var(--glip)}
+.scene::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(transparent,rgba(46,37,69,.28))}
+.scene-kid{position:absolute;bottom:-6px;left:50%;transform:translateX(-58%);height:88%;width:auto;z-index:1;filter:drop-shadow(0 6px 10px rgba(40,20,60,.3))}
+.scene-tag{position:absolute;left:10px;bottom:10px;z-index:2;background:#fff;border:3px solid var(--gline);border-radius:14px;padding:2px 12px;box-shadow:0 3px 0 var(--glip);line-height:1.4}
+.scene-tag b{display:block;font-size:15px}.scene-tag span{font-size:11.5px;color:var(--ink-3)}
+.story{padding:9px 12px;border-radius:14px;background:#FFF3DA;border:2px solid #FFC85C;font-size:14px;line-height:1.75}
+.story i{display:block;font-style:normal;font-size:10.5px;font-weight:800;color:#9A6400}
+.story.doc{background:var(--blue-soft);border-color:#AFC0FF}.story.doc i{color:#3557D6}
+.vitals{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px}
+.vital{padding:6px 10px;border-radius:12px;background:var(--panel2);border:2px solid var(--line);min-width:0}
+.vital span{display:block;font-size:10.5px;color:var(--ink-3);font-weight:800}
+.vital b{font-size:13.5px;font-weight:800;line-height:1.45;display:block}
+
+.talknext{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:3px dashed var(--chap);background:color-mix(in srgb,var(--chap) 8%,#fff);border-radius:14px;padding:10px;font-weight:800;font-size:14px;cursor:pointer;color:var(--ink)}
+.talknext .tri{color:var(--chap);animation:vnfloat 1.2s ease-in-out infinite}
+@keyframes vnfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.talkbar{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.talkbar .num{font-size:13px;color:var(--ink-3)}
+.skip{border:2px solid var(--gline);background:#fff;border-radius:99px;padding:1px 12px;font-size:12px;font-weight:800;cursor:pointer}
+.story.new{animation:storyin .28s ease-out}
+@keyframes storyin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.story.doc{margin-left:28px}.story:not(.doc){margin-right:28px}
+/* ---------- メーター・グラフ ---------- */
+.meters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.meter{padding:6px 10px;border-radius:12px;background:var(--panel2);border:2px solid var(--line)}
+.meter span{display:block;font-size:11px;color:var(--ink-3);font-weight:800}
+.meter b{font:700 20px/1.2 var(--f-num)}
+.meter .mb{height:9px;border-radius:99px;background:#fff;border:2px solid var(--gline);overflow:hidden;margin-top:3px}
+.meter .mb i{display:block;height:100%;transition:width .35s}
+.fig{border:2.5px solid var(--gline);border-radius:14px;background:#fff;overflow:hidden}
+.fig svg{display:block;width:100%;height:auto}
+.fig text{fill:var(--ink-3);font-family:var(--f-body);font-size:11px;font-weight:700}
+.toggles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.tog{display:flex;align-items:center;gap:8px;text-align:left;border:2.5px solid var(--gline);background:#fff;border-radius:14px;padding:8px 10px;cursor:pointer;box-shadow:0 3px 0 var(--glip);font-size:13px;font-weight:800;line-height:1.35}
+.tog .sw{flex:none;width:34px;height:20px;border-radius:99px;background:#E7E1EE;border:2px solid var(--gline);position:relative;transition:background .2s}
+.tog .sw::after{content:"";position:absolute;top:1px;left:1px;width:14px;height:14px;border-radius:50%;background:#fff;border:2px solid var(--gline);transition:left .2s}
+.tog[aria-pressed="true"]{background:color-mix(in srgb,var(--chap) 12%,#fff)}
+.tog[aria-pressed="true"] .sw{background:var(--chap)}
+.tog[aria-pressed="true"] .sw::after{left:15px}
+.tog small{display:block;font-size:11px;color:var(--ink-3);font-weight:700}
+.cyc{display:block;width:100%;max-width:340px;margin:0 auto}
+.cyc .nd{transition:transform .25s;transform-box:fill-box;transform-origin:center}
+.cyc .nd.hit{transform:scale(1.12)}
+.cyc text{font-family:var(--f-body);font-weight:800}
+input[type=range]{width:100%;accent-color:var(--chap);height:28px}
+.ctrl{display:flex;flex-direction:column;gap:2px}
+.ctrl label{font-size:12px;font-weight:800;color:var(--ink-3)}
+.readouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:6px}
+.ro{padding:6px 10px;border-radius:12px;background:var(--panel2);border:2px solid var(--line)}
+.ro span{display:block;font-size:10.5px;color:var(--ink-3);font-weight:800}
+.ro b{font:700 18px/1.25 var(--f-num)}
+.ro b.jp{font:800 14px/1.4 var(--f-body)}
+.ro b.bad{color:var(--red)} .ro b.good{color:var(--ok)}
+
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.bars{display:flex;flex-direction:column;gap:5px}
+.barrow{display:grid;grid-template-columns:112px 1fr 48px;gap:8px;align-items:center;border:0;background:none;padding:2px 0;text-align:left;cursor:pointer;font-size:13px;font-weight:800;width:100%;color:inherit}
+.barrow .tr{height:16px;border-radius:99px;background:#F5EEF4;border:2px solid var(--gline);overflow:hidden}
+.barrow .tr i{display:block;height:100%;background:linear-gradient(90deg,#4FD8B4,#1FA7B5);transition:width .8s cubic-bezier(.2,.8,.3,1)}
+.barrow b{font:700 15px var(--f-num);text-align:right}
+.barrow[aria-pressed="true"]{color:var(--chap)}
+/* ---------- HPV ---------- */
+.shield{display:flex;align-items:center;gap:14px;justify-content:center}
+.shield svg{width:96px;height:auto}
+.shield svg rect{transition:y .45s}
+.shield span{font-weight:800;font-size:15px}
+.dots{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
+.dots > div{border:2.5px solid var(--gline);border-radius:14px;padding:6px 8px;background:#fff;display:flex;flex-direction:column;gap:4px;min-width:0}
+.dots svg{display:block;width:100%;height:auto}
+.dots b{font-size:14px;text-align:right}
+.armwrap{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:12px;align-items:start}
+@media(max-width:520px){.armwrap{grid-template-columns:minmax(0,1fr)}.armwrap svg{max-width:280px;margin:0 auto}}
+.armwrap svg{display:block;width:100%;height:auto;background:linear-gradient(180deg,#FFF9F2,#EAF7F8);border:2.5px solid var(--gline);border-radius:16px;touch-action:manipulation}
+.armwrap svg text{fill:var(--ink-2);font-family:var(--f-body);font-weight:800;paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round}
+.olist{margin:0;padding:0 0 0 0;list-style:none;display:flex;flex-direction:column;gap:6px;counter-reset:o}
+.olist:empty{display:none}
+.olist li{position:relative;padding:7px 10px 7px 40px;border-radius:12px;background:var(--ok-soft);border:2px solid var(--ok);font-size:14px;font-weight:700;animation:storyin .25s ease-out}
+.olist li::before{counter-increment:o;content:counter(o);position:absolute;left:9px;top:8px;width:22px;height:22px;border-radius:50%;background:var(--ok);color:#fff;font:700 13px/22px var(--f-num);text-align:center}
+.funnel{display:flex;flex-direction:column;align-items:center;gap:6px}
+.funnel div{width:var(--w);min-width:190px;max-width:100%;text-align:center;background:linear-gradient(180deg,#E3F6F8,#C6ECF0);border:2.5px solid var(--gline);border-radius:14px;padding:6px 10px}
+.funnel b{display:block;font:700 20px/1.2 var(--f-num)}
+.funnel span{font-size:12px;color:var(--ink-2);font-weight:700}
+.avatar{width:64px;height:64px;border-radius:50%;border:3px solid var(--gline);background:#fff;object-fit:cover;flex:none}
+.ro b.good,.ro b[data-hr].good{color:var(--ok)}
+/* ---------- まとめ ---------- */
+.result-top{display:flex;align-items:flex-end;gap:12px;min-width:0}
+.result-top img{height:130px;width:auto;margin-bottom:-16px}
+.takeaways{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;counter-reset:t}
+.takeaways li{position:relative;padding:8px 10px 8px 42px;border-radius:14px;background:var(--panel2);border:2px solid var(--line);font-size:14px}
+.takeaways li::before{counter-increment:t;content:counter(t);position:absolute;left:10px;top:9px;width:24px;height:24px;border-radius:50%;background:var(--chap);color:#fff;border:2px solid var(--gline);font:700 13px/20px var(--f-num);text-align:center}
+.src{font-size:11.5px;color:var(--ink-3);line-height:1.6}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}#fx{display:none}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="fx" aria-hidden="true"></div>
+<script src="assets/sound.js"></script>
+<script src="assets/bgm.js"></script>
+<script>
+"use strict";
+/* ============ 共通 ============ */
+const $=(s,r=document)=>r.querySelector(s);
+const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const ART=n=>`assets/${n}.png`;
+const IMG=n=>`assets/img/${n}.webp`;
+const SND=window.VentSound||{play(){},enabled(){return true},setEnabled(){}};
+const BGM=window.VentBGM||{want(){},jingle(){return false},refresh(){},setEnabled(){}};
+const play=n=>{try{SND.play(n)}catch(e){}};
+const cl=(v,a=0,b=100)=>Math.max(a,Math.min(b,v));
+const KEY="hpv.master.v1";
+let PROG={};try{PROG=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){PROG={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(PROG))}catch(e){}}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+function coach(face,html,cls=""){
+  const nurse=cls.includes("nurse");
+  const src=nurse?IMG("face_minami_"+(face==="alert"?"think":face)):ART("face_"+face);
+  return `<div class="coach ${cls}"><div class="cav"><img src="${src}" alt=""></div><div class="cbub"><div class="cwho">${nurse?"看護師 ミナミ":"いぶき先生"}</div>${html}</div></div>`;
+}
+function kidImg(id,mood,cls,fallbackInit){
+  return `<img class="${cls}" src="${IMG("kid_"+id+"_"+mood)}" alt="" onerror="this.remove()">`;
+}
+function confetti(){
+  const fx=$("#fx");if(!fx)return;const cs=["#FF5E8A","#FFB020","#12C48B","#5B7CFA","#8B6BFF"];
+  for(let i=0;i<34;i++){const e=document.createElement("i");e.style.left=(40+Math.random()*20)+"%";e.style.top="38%";e.style.background=cs[i%5];
+    e.style.setProperty("--dx",(Math.random()*360-180)+"px");e.style.setProperty("--dy",(Math.random()*320-60)+"px");e.style.setProperty("--rot",(Math.random()*720)+"deg");fx.appendChild(e);setTimeout(()=>e.remove(),1600)}
+}
+function toast(msg,face="happy"){const t=document.createElement("div");t.className="toast";t.innerHTML=`<img src="${ART("face_"+face)}" alt="">${msg}`;document.body.appendChild(t);setTimeout(()=>t.remove(),2300)}
+function sndIcon(on){return on?`<svg viewBox="0 0 24 24" fill="none" stroke="#2E2545" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#FFC53D"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>`:`<svg viewBox="0 0 24 24" fill="none" stroke="#2E2545" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#E7E1EE"/><path d="M17 9l5 6M22 9l-5 6"/></svg>`}
+function sndBtn(){const on=SND.enabled();return `<button class="sndbtn" type="button" aria-pressed="${on}" aria-label="音" data-snd>${sndIcon(on)}</button>`}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-snd]");if(!b)return;const on=!SND.enabled();SND.setEnabled(on);try{BGM.setEnabled(on)}catch(_){ }$$("[data-snd]").forEach(x=>{x.setAttribute("aria-pressed",on);x.innerHTML=sndIcon(on)})});
+
+/* ============ 採点 ============ */
+let G=null;
+function grade(key,ok){
+  if(G&&!G.seen.has(key)){G.seen.add(key);G.n++;if(ok)G.ok++}
+  if(ok){play("confirm")}else play("miss");
+  return ok;
+}
+function win(msg){confetti();toast(msg);try{BGM.jingle("note")}catch(e){}}
+
+/* ============ 問題の部品 ============ */
+/* 1つ選ぶ */
+function mcq(box,{key,q,opts,a,exp,hints={},lead=""}){
+  const d=document.createElement("div");d.className="sheet stack";
+  d.innerHTML=`${lead}<h3 class="q">${q}</h3><div class="opts">${opts.map((o,i)=>`<button class="opt" type="button" data-i="${i}">${o}</button>`).join("")}</div><div class="fb"></div>`;
+  box.appendChild(d);
+  $$(".opt",d).forEach(b=>b.addEventListener("click",()=>{
+    const i=+b.dataset.i,ok=i===a;grade(key,ok);
+    if(ok){$$(".opt",d).forEach(x=>{x.disabled=true;if(+x.dataset.i===a)x.classList.add("right")})}
+    else{b.classList.add("wrong");b.disabled=true}
+    $(".fb",d).innerHTML=coach(ok?"happy":"think",ok?exp:(hints[i]||"おしい。もう一度考えてみましょう。"),ok?"ok":"ng");
+  }));
+  return d;
+}
+/* いくつでも選ぶ */
+function msq(box,{key,q,items,exp,lead=""}){
+  const d=document.createElement("div");d.className="sheet stack";
+  const its=shuffle(items);
+  d.innerHTML=`${lead}<h3 class="q">${q}</h3><p class="note">あてはまるものをすべて選んで「答え合わせ」。</p><div class="opts">${its.map((o,i)=>`<button class="opt" type="button" aria-pressed="false" data-i="${i}">${o.t}</button>`).join("")}</div><div class="row"><button class="btn solid sm" type="button" data-chk>答え合わせ</button></div><div class="fb"></div>`;
+  box.appendChild(d);
+  $$(".opt",d).forEach(b=>b.addEventListener("click",()=>{if(b.disabled)return;b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")!=="true");play("tap")}));
+  $("[data-chk]",d).addEventListener("click",e=>{
+    let ok=true;
+    $$(".opt",d).forEach(b=>{const it=its[+b.dataset.i],on=b.getAttribute("aria-pressed")==="true";b.disabled=true;b.setAttribute("aria-pressed","false");
+      if(it.c&&on)b.classList.add("right");else if(it.c&&!on){b.classList.add("missed");ok=false}else if(!it.c&&on){b.classList.add("wrong");ok=false}
+      if(it.why)b.insertAdjacentHTML("beforeend",`<span class="note" style="display:block;font-weight:600;color:var(--ink-2)">${it.why}</span>`)});
+    grade(key,ok);e.target.disabled=true;
+    $(".fb",d).innerHTML=coach(ok?"happy":"think",(ok?"全部正解です。":"緑の点線は選びたかったもの、赤は選ばなくてよかったものです。")+"<br>"+exp,ok?"ok":"ng");
+  });
+  return d;
+}
+/* 行ごとに選ぶ（組み合わせ・仕分け・○×） */
+function match(box,{key,q,rows,opts,exp,lead="",note=""}){
+  const d=document.createElement("div");d.className="sheet stack";
+  d.innerHTML=`${lead}<h3 class="q">${q}</h3>${note?`<p class="note">${note}</p>`:""}<div>${rows.map((r,ri)=>`<div class="mrow" data-r="${ri}"><b>${r.t}</b><div class="chips">${(r.opts||opts).map((o,oi)=>`<button class="chip" type="button" data-o="${oi}">${o}</button>`).join("")}</div><div class="rfb note" hidden></div></div>`).join("")}</div><div class="fb"></div>`;
+  box.appendChild(d);
+  let done=0,allok=true;
+  $$(".mrow",d).forEach(row=>{const r=rows[+row.dataset.r];
+    $$(".chip",row).forEach(c=>c.addEventListener("click",()=>{
+      const oi=+c.dataset.o,ok=oi===r.a;
+      if(!row.dataset.tried){row.dataset.tried=1;if(!ok)allok=false}
+      play(ok?"confirm":"miss");
+      if(ok){$$(".chip",row).forEach(x=>{x.disabled=true;if(+x.dataset.o===r.a)x.classList.add("right")});done++;
+        if(r.why){const f=$(".rfb",row);f.hidden=false;f.innerHTML=r.why}
+        if(done===rows.length){grade(key,allok);$(".fb",d).innerHTML=coach(allok?"happy":"normal",(allok?"全部一度で正解です。":"全部そろいました。")+(exp?"<br>"+exp:""),allok?"ok":"")}}
+      else{c.classList.add("wrong");c.disabled=true}
+    }))});
+  return d;
+}
+function sheet(box,html,cls=""){const d=document.createElement("div");d.className="sheet stack "+cls;d.innerHTML=html;box.appendChild(d);return d}
+
+/* 問診：タップで一言ずつ進める */
+function talk(box){
+  const stories=$$(".story",box);if(!stories.length)return;
+  const holder=stories[0].parentElement,rest=$$(":scope > .sheet",box).filter(x=>x!==holder&&!x.contains(stories[0]));
+  const navNext=()=>$("[data-next]",app);
+  let k=1;stories.forEach((x,i)=>x.hidden=i>0);rest.forEach(x=>x.hidden=true);
+  holder.insertAdjacentHTML("afterbegin",`<div class="talkbar"><span class="lbl">問診</span><span class="num" data-tc></span><button class="skip" type="button" data-skip>全部見る</button></div>`);
+  holder.insertAdjacentHTML("beforeend",`<button class="talknext" type="button" data-tn><span class="tri">▼</span>タップしてつづきを聞く</button>`);
+  const btn=$("[data-tn]",holder),cnt=$("[data-tc]",holder);
+  const done=()=>{btn.remove();$("[data-skip]",holder).remove();rest.forEach(x=>{x.hidden=false;x.classList.add("story-in")});cnt.textContent=stories.length+"/"+stories.length;const n=navNext();if(n)n.disabled=false};
+  const upd=()=>{cnt.textContent=k+"/"+stories.length};upd();
+  const next=()=>{if(k>=stories.length)return;const x=stories[k++];x.hidden=false;x.classList.add("new");play("tap");upd();
+    if(k>=stories.length)done();else btn.scrollIntoView({block:"nearest",behavior:"smooth"})};
+  btn.addEventListener("click",e=>{e.stopPropagation();next()});
+  holder.addEventListener("click",e=>{if(e.target.closest("button"))return;next()});
+  $("[data-skip]",holder).addEventListener("click",()=>{stories.forEach(x=>x.hidden=false);k=stories.length;play("tap");done()});
+  setTimeout(()=>{const n=navNext();if(n&&k<stories.length)n.disabled=true},0);
+}
+/* 順番に並べる */
+function order(box,{key,q,items,exp,lead="",note=""}){
+  const d=document.createElement("div");d.className="sheet stack";
+  const its=shuffle(items.map((t,i)=>({t,i})));
+  d.innerHTML=`${lead}<h3 class="q">${q}</h3><p class="note">${note||"正しい順にタップしていきます。"}</p><ol class="olist" data-ol></ol><div class="opts">${its.map(o=>`<button class="opt" type="button" data-i="${o.i}">${o.t}</button>`).join("")}</div><div class="fb"></div>`;
+  box.appendChild(d);
+  let k=0,miss=false;const ol=$("[data-ol]",d);
+  $$(".opt",d).forEach(b=>b.addEventListener("click",()=>{
+    const i=+b.dataset.i;
+    if(i===k){b.remove();ol.insertAdjacentHTML("beforeend",`<li>${items[i]}</li>`);k++;play("tap");
+      if(k===items.length){grade(key,!miss);$(".fb",d).innerHTML=coach(miss?"normal":"happy",(miss?"そろいました。":"一度もまちがえずに並べられました。")+"<br>"+exp,miss?"":"ok")}}
+    else{miss=true;play("miss");b.classList.add("wrong");setTimeout(()=>b.classList.remove("wrong"),450)}
+  }));
+  return d;
+}
+
+/* ============ HPV の図 ============ */
+/* 15歳までの初回累積接種率（女子・2024年。WHO）。講演スライド「各国のHPVワクチン接種プログラム（2026年1月）」 */
+const NATIONS=[["オーストラリア",83,"学校接種"],["アメリカ",77,"医療機関"],["カナダ",86,"学校接種"],["フランス",48,"学校＋医療機関"],["イギリス",78,"学校接種"],["ドイツ",68,"医療機関"],["日本",36,"医療機関"]];
+function nationBars(box){
+  const d=sheet(box,`<h3>15歳までに1回以上うった女子の割合</h3><p class="note">2024年のデータ（WHO）。日本の数字を予想してから「答えを見る」。</p>
+   <div class="ctrl"><label for="guessR">日本の予想：<b data-g>50</b> %</label><input id="guessR" type="range" min="0" max="100" value="50"></div>
+   <div class="bars" data-bars>${NATIONS.map(([n,v,w],i)=>`<div class="barrow" data-i="${i}"><span>${n}</span><span class="tr"><i style="width:0"></i></span><b class="num">${i===6?"?":""}</b></div>`).join("")}</div>
+   <div class="row"><button class="btn solid sm" type="button" data-show>答えを見る</button></div><div class="fb"></div>`);
+  const r=$("#guessR",d);r.addEventListener("input",()=>{$("[data-g]",d).textContent=r.value;play("tick")});
+  $("[data-show]",d).addEventListener("click",e=>{e.target.disabled=true;r.disabled=true;
+    $$(".barrow",d).forEach(row=>{const [n,v]=NATIONS[+row.dataset.i];$("i",row).style.width=v+"%";$("b",row).textContent=v+"%";if(+row.dataset.i===6)$("i",row).style.background="linear-gradient(90deg,#7FA0FF,#5B7CFA)"});
+    const g=+r.value,ok=Math.abs(g-36)<=12;grade("basic-guess",ok);
+    $(".fb",d).innerHTML=coach(ok?"happy":"think",`日本は <b>36%</b>（あなたの予想は ${g}%）。オーストラリアやイギリスは<b>学校での接種</b>で8割を超えています。日本は医療機関でうつしくみで、学校接種はありません。`,ok?"ok":"ng");
+  });
+}
+/* 接種した年齢と子宮頸がんの予防効果（英国：Falcaro M, Lancet 2021。デンマーク：Kjaer SK, JNCI 2021） */
+function ageEffect(box){
+  const d=sheet(box,`<h3>何歳でうつと、いちばん効く？</h3><p class="note">スライダーで接種した年齢を動かすと、子宮頸がんの予防効果（有効率）が出ます。</p>
+   <div class="ctrl"><label for="ageE">接種した年齢：<b data-a></b></label><input id="ageE" type="range" min="12" max="30" value="20"></div>
+   <div class="readouts"><div class="ro"><span>英国（2価）</span><b data-uk></b></div><div class="ro"><span>デンマーク</span><b data-dk></b></div></div>
+   <div class="shield"><svg viewBox="0 0 120 130" aria-hidden="true"><path d="M60 6 L108 24 V62 C108 94 86 114 60 124 C34 114 12 94 12 62 V24 Z" fill="#E3F6F8" stroke="#2E2545" stroke-width="5"/><clipPath id="shc"><path d="M60 6 L108 24 V62 C108 94 86 114 60 124 C34 114 12 94 12 62 V24 Z"/></clipPath><rect data-fill x="0" y="130" width="120" height="130" fill="#1FA7B5" clip-path="url(#shc)"/><path d="M60 6 L108 24 V62 C108 94 86 114 60 124 C34 114 12 94 12 62 V24 Z" fill="none" stroke="#2E2545" stroke-width="5"/></svg><span data-msg></span></div>
+   <div class="fb"></div>`);
+  const r=$("#ageE",d);let seen=new Set();
+  function upd(){const a=+r.value;$("[data-a]",d).textContent=a+"歳";
+    const uk=a<=13?87:a<=16?62:a<=18?34:null, dk=a<=16?86:a<=19?68:-19;
+    $("[data-uk]",d).textContent=uk==null?"データなし":uk+"%";
+    $("[data-dk]",d).textContent=dk<0?"効果を認めず":dk+"%"+(a>=17?"*":"");
+    const v=uk==null?Math.max(dk,0):uk;$("[data-fill]",d).setAttribute("y",130-v*1.3);
+    $("[data-msg]",d).textContent=v>=80?"とても強いまもり":v>=50?"まずまずのまもり":v>0?"弱いまもり":"ほとんど効かない";
+    seen.add(a<=13?"y":a<=18?"m":"o");
+    if(seen.size===3&&!$(".fb",d).innerHTML)$(".fb",d).innerHTML=coach("normal","<b>若いうちにうつほど</b>効果が高く、12〜13歳では約9割です。20歳をすぎてからでは、はっきりした効果が見えません。*デンマークの17〜19歳は信頼区間が広く、確かとはいえません。");}
+  r.addEventListener("input",()=>{upd();play("tick")});upd();
+}
+/* 黒澤先生の研究（Kurosawa M, Cancer Sci 2022）：20歳前後の429人 */
+function dotGrid(box){
+  const d=sheet(box,`<h3>429人の検診の結果をのぞいてみる</h3><p class="note">ワクチンをうった150人と、うっていない279人。赤い点が感染していた人です。型を切り替えてみましょう。</p>
+   <div class="chips" role="group"><button class="chip" type="button" aria-pressed="true" data-t="a">HPV16/18型（ワクチンの標的）</button><button class="chip" type="button" aria-pressed="false" data-t="b">31/45/52型（標的以外）</button></div>
+   <div class="dots"><div><span class="lbl">接種した 150人</span><svg data-v viewBox="0 0 150 90"></svg><b class="num" data-pv></b></div><div><span class="lbl">接種していない 279人</span><svg data-u viewBox="0 0 150 168"></svg><b class="num" data-pu></b></div></div><div class="fb"></div>`);
+  const T={a:{v:0,u:15},b:{v:5,u:28}};let seen=new Set();
+  function grid(n,inf,el){let s="";const pick=new Set(shuffle([...Array(n).keys()]).slice(0,inf));
+    for(let i=0;i<n;i++){const x=6+(i%15)*9.6,y=6+Math.floor(i/15)*8.6;s+=`<circle cx="${x}" cy="${y}" r="3.4" fill="${pick.has(i)?"#E0334F":"#BFE7EC"}" stroke="#2E2545" stroke-width=".8"/>`}el.innerHTML=s}
+  function upd(t){const o=T[t];grid(150,o.v,$("[data-v]",d));grid(279,o.u,$("[data-u]",d));
+    $("[data-pv]",d).textContent=`${o.v}/150 = ${(o.v/150*100).toFixed(1)}%`;$("[data-pu]",d).textContent=`${o.u}/279 = ${(o.u/279*100).toFixed(1)}%`;seen.add(t);
+    if(seen.size===2)$(".fb",d).innerHTML=coach("happy","16/18型は接種者で<b>0人</b>。9年たっても感染を防いでいました。さらに、ワクチンの標的ではない31/45/52型も減っています（3.3% 対 10%）。これを<b>クロスプロテクション</b>といいます。","ok")}
+  $$("[data-t]",d).forEach(b=>b.addEventListener("click",()=>{$$("[data-t]",d).forEach(x=>x.setAttribute("aria-pressed",x===b));play("tap");upd(b.dataset.t)}));
+  upd("a");
+}
+/* 9価ワクチンのスケジュール */
+function schedule(box,{kid,age0=12}){
+  const d=sheet(box,`<h3>はじめる年齢で、回数が変わる</h3><p class="note">9価ワクチン（シルガード®9）。1回目をうつ年齢を動かしてみましょう。</p>
+   <div class="ctrl"><label for="schA">1回目の年齢：<b data-a></b></label><input id="schA" type="range" min="9" max="16" value="${age0}"></div>
+   <div class="fig"><svg viewBox="0 0 340 92" data-cal></svg></div>
+   <div class="readouts"><div class="ro"><span>合計の回数</span><b data-n></b></div><div class="ro"><span>うつ時期</span><b class="jp" data-w></b></div></div><div class="fb"></div>`);
+  const r=$("#schA",d);
+  function upd(){const a=+r.value,two=a<15;$("[data-a]",d).textContent=a+"歳"+(a<12?"（定期接種は小6から）":"");
+    const doses=two?[0,6]:[0,2,6],X=m=>20+m*25;
+    $("[data-n]",d).textContent=(two?2:3)+"回";$("[data-w]",d).innerHTML=two?"0か月・<b>6〜12か月後</b>":"0・2・6か月";
+    $("[data-cal]",d).innerHTML=`<line x1="20" y1="46" x2="320" y2="46" stroke="#C3B4D6" stroke-width="3"/>${[0,2,4,6,8,10,12].map(m=>`<text x="${X(m)}" y="82" text-anchor="middle">${m}か月</text>`).join("")}
+     ${two?`<rect x="${X(6)}" y="38" width="${X(12)-X(6)}" height="16" rx="8" fill="#BFE7EC" stroke="#1FA7B5" stroke-width="2"/>`:""}
+     ${doses.map((m,i)=>`<g><circle cx="${X(m)}" cy="46" r="15" fill="#1FA7B5" stroke="#2E2545" stroke-width="3"/><text x="${X(m)}" y="51" text-anchor="middle" style="fill:#fff;font-size:14px;font-weight:800">${i+1}</text></g>`).join("")}`;}
+  r.addEventListener("input",()=>{upd();play("tick")});upd();
+  return d;
+}
+/* 筋注の部位：右上腕を横から見た図 */
+function armSite(box,{key}){
+  const d=sheet(box,`<h3>リンさんの左肩の、どこにうつ？</h3><p class="note">腕は真下にだらんと垂らして座っています。うつ場所をタップしてください。1目盛り＝1cm。</p>
+   <div class="armwrap"><svg viewBox="0 0 300 360" data-arm role="img" aria-label="上腕を横から見た図">
+    <defs><linearGradient id="skg" x1="0" x2="1"><stop offset="0" stop-color="#F6CFB8"/><stop offset=".5" stop-color="#FCE2D2"/><stop offset="1" stop-color="#F2C2A8"/></linearGradient></defs>
+    <path d="M40 360 V120 C40 70 70 34 120 30 L176 30 C226 34 252 72 252 130 L246 360 Z" fill="#2E3A66" stroke="#2E2545" stroke-width="4"/>
+    <path d="M104 40 C78 54 80 120 92 190 C100 250 106 300 108 360 H200 C204 300 210 250 214 190 C224 120 226 56 198 40 C176 28 128 28 104 40 Z" fill="url(#skg)" stroke="#2E2545" stroke-width="4"/>
+    <path data-guide d="M110 62 C140 46 170 46 196 62 C204 120 186 190 156 236 C124 190 104 120 110 62 Z" fill="none" stroke="#B0234A" stroke-width="2.5" stroke-dasharray="6 5" opacity="0"/>
+    <path d="M150 60 V50" stroke="#2E2545" stroke-width="3"/><circle cx="150" cy="46" r="5" fill="#FFC53D" stroke="#2E2545" stroke-width="2"/>
+    <text x="162" y="42" style="font-size:12px">肩峰</text>
+    ${[1,2,3,4,5,6,7,8,9,10].map(c=>`<line x1="236" y1="${46+c*20}" x2="${c%5?244:250}" y2="${46+c*20}" stroke="#767898" stroke-width="2"/>`).join("")}<line x1="236" y1="46" x2="236" y2="246" stroke="#767898" stroke-width="2"/><text x="254" y="150" style="font-size:12px">5cm</text><text x="254" y="250" style="font-size:12px">10cm</text>
+    <g data-lines opacity="0"><line x1="150" y1="46" x2="150" y2="300" stroke="#E0334F" stroke-width="2.5"/><line x1="84" y1="146" x2="224" y2="146" stroke="#E0334F" stroke-width="2.5"/><text x="100" y="164" style="font-size:10.5px;fill:#B0234A">前後の腋窩線の頂点を結ぶ線</text><text x="156" y="296" style="font-size:10.5px;fill:#B0234A">肩峰から下ろした線</text></g>
+    <rect x="96" y="40" width="130" height="300" fill="transparent" data-hit style="cursor:crosshair"/>
+    <g data-pin></g>
+   </svg>
+   <div class="stack" style="gap:8px"><div class="row"><button class="btn sm" type="button" data-hint>ガイド線を出す</button></div><div class="fb"></div></div></div>`);
+  const svg=$("[data-arm]",d);let tried=false,done=false;
+  function pt(e){const r=svg.getBoundingClientRect();return{x:(e.clientX-r.left)/r.width*300,y:(e.clientY-r.top)/r.height*360}}
+  $("[data-hint]",d).addEventListener("click",()=>{$("[data-lines]",d).setAttribute("opacity","1");$("[data-guide]",d).setAttribute("opacity","1");play("tap")});
+  $("[data-hit]",d).addEventListener("click",e=>{if(done)return;const p=pt(e),cm=(p.y-46)/20,dx=Math.abs(p.x-150);
+    $("[data-pin]",d).innerHTML=`<g transform="translate(${p.x},${p.y})"><circle r="9" fill="#5B7CFA" fill-opacity=".85" stroke="#fff" stroke-width="3"/><circle r="13" fill="none" stroke="#2E2545" stroke-width="2"/></g>`;
+    let msg,ok=false;
+    if(cm<3)msg=`肩峰から約${cm.toFixed(1)}cm。<b>高すぎます</b>。肩峰から3cm以内は、下に肩峰下滑液包があり、<b>SIRVA（ワクチン接種に関連した肩の障害）</b>を起こすことがあります。`;
+    else if(cm>7.5)msg=`肩峰から約${cm.toFixed(1)}cm。<b>低すぎます</b>。三角筋の下端（三角筋粗面）より下は筋肉が薄く、<b>橈骨神経</b>が走っています。`;
+    else if(dx>26)msg="前か後ろにずれています。肩峰から真下に下ろした線の上を狙いましょう。";
+    else if(Math.abs(cm-5)>1.3)msg=`肩峰から約${cm.toFixed(1)}cm。三角筋の上ですが、もう少し${cm<5?"下":"上"}がおすすめです。<br>前腋窩線と後腋窩線の頂点を結ぶ線と、肩峰から下ろした線が<b>交わる点</b>を狙います。`;
+    else{ok=true;msg=`ちょうど交点です（肩峰から約${cm.toFixed(1)}cm）。三角筋のいちばん厚いところです。三角筋の両縁に手を添えると、位置を決めやすくなります。`}
+    if(!tried||ok){if(!tried)grade(key,ok);tried=true}
+    if(ok){done=true;play("confirm");$("[data-lines]",d).setAttribute("opacity","1");$("[data-guide]",d).setAttribute("opacity","1")}else play("miss");
+    $(".fb",d).innerHTML=coach(ok?"happy":"think",msg,ok?"ok":"ng");
+  });
+}
+/* 接種後のようす：倒れかけたリンさんへの対応 */
+function faintSim(box){
+  const d=sheet(box,`<div class="row" style="flex-wrap:nowrap"><img src="${IMG("kid_rin_worried")}" alt="" class="avatar" onerror="this.remove()"><div><h3>接種して2分後</h3><p class="note">「なんだか気持ち悪い……」。顔が真っ白で、冷や汗をかき、いすから崩れそうになっています。</p></div></div>
+   <div class="readouts"><div class="ro"><span>脈拍</span><b data-hr>52/分</b></div><div class="ro"><span>血圧</span><b data-bp>82/48</b></div><div class="ro"><span>皮膚</span><b class="jp">蒼白・冷汗。じんましんなし</b></div><div class="ro"><span>呼吸</span><b class="jp">ぜーぜーなし</b></div></div>
+   <div class="opts">${["横にして、足を高くする","すぐにアドレナリンを筋注する","立たせて、歩いて外の空気を吸わせる","水を飲ませて、そのまま座って様子を見る"].map((o,i)=>`<button class="opt" type="button" data-i="${i}">${o}</button>`).join("")}</div><div class="fb"></div>`);
+  const H={1:"じんましん・ぜーぜー・血圧の大きな低下が続くなど、<b>アナフィラキシー</b>を疑うときはアドレナリン筋注（大腿前外側）です。今は徐脈・蒼白・冷汗で、まず迷走神経反射を考えます。ただし、アナフィラキシーに変わらないか見続けます。",2:"立たせると脳への血流がさらに減り、倒れてけがをします。",3:"座ったままでは血圧が戻りにくく、倒れる危険があります。"};
+  $$(".opt",d).forEach(b=>b.addEventListener("click",()=>{const i=+b.dataset.i,ok=i===0;grade("rin-faint",ok);
+    if(ok){$$(".opt",d).forEach(x=>{x.disabled=true;if(+x.dataset.i===0)x.classList.add("right")});
+      let hr=52,s=82;const t=setInterval(()=>{hr+=4;s+=4;$("[data-hr]",d).textContent=hr+"/分";$("[data-bp]",d).textContent=s+"/"+(s-34);if(hr>=76){clearInterval(t);$("[data-hr]",d).classList.add("good");$("[data-bp]",d).classList.add("good")}},260);
+      $(".fb",d).innerHTML=coach("happy","<b>迷走神経反射（失神）</b>です。仰臥位で下肢を挙上すると、数分で脈と血圧が戻りました。よくならなければ生理食塩水500mLの点滴を考えます。<br>予防には、接種30分前からOS-1などで<b>十分に水分</b>をとってもらいます。","ok")}
+    else{b.classList.add("wrong");b.disabled=true;$(".fb",d).innerHTML=coach("think",H[i],"ng")}}));
+}
+
+/* ============ 症例 ============ */
+const CASES=[
+/* ---------------- しくみ編 ---------------- */
+{id:"basic",code:"HPV-00",chap:"0",title:"しくみ編：世界と日本、そして効果",sub:"接種率の国際比較・日本の歩み・年齢と予防効果",kid:null,init:"基",
+ steps:[
+ {h:"世界は撲滅へ。日本は増加へ",r(box){
+  sheet(box,coach("normal","子宮頸がんは、<b>HPV（ヒトパピローマウイルス）</b>が持続感染して起こるがんです。世界は子宮頸がんの撲滅に向かっていますが、日本は罹患率が<b>増えて</b>います。まず、各国の接種率を見てみましょう。"));
+  nationBars(box);
+ }},
+ {h:"日本の歩みをたどる",r(box){
+  match(box,{key:"basic-history",q:"日本のHPVワクチンの出来事と、その時期を組み合わせましょう。",opts:["2009年10月","2013年4月","2013年6月","2022年4月"],
+   rows:[{t:"2価ワクチン（サーバリックス®）が承認される",a:0},
+    {t:"2価・4価ワクチンが定期接種（A類）になる。対象は小6〜高1相当の女子",a:1},
+    {t:"接種後の「多様な症状」の報告を受けて、積極的な接種勧奨を差し控える",a:2,why:"定期接種のままでしたが、接種率は<b>約70% → 約1%</b>に激減しました。"},
+    {t:"積極的な接種勧奨を再開する",a:3,why:"差し控えから約9年。うちそびれた世代へのキャッチアップ接種も始まりました。"}]});
+  mcq(box,{key:"basic-who",q:"WHOのワクチン安全性諮問委員会（GACVS、2015年）は、日本の判断をどう評価しましたか。",
+   opts:["慎重な判断で、ほかの国も見習うべき","弱いエビデンスにもとづく政策は、安全で有効なワクチンの機会を失わせ、実害をもたらしうる","ワクチンをやめて検診だけにすべき"],a:1,
+   exp:"GACVS は「<b>弱いエビデンスにもとづく政策決定は、実害をもたらしうる</b>」と述べました。"});
+ }},
+ {h:"若いうちにうつほど効く",r(box){
+  sheet(box,coach("normal","2018年以降、ワクチンが<b>がんそのもの</b>を防ぐというデータが世界中から出てきました。接種した年齢で効果がどう変わるか、動かしてみましょう。"));
+  ageEffect(box);
+  mcq(box,{key:"basic-why",q:"若いうちにうつほど効く、いちばんの理由はどれですか。",
+   opts:["若い人のほうが副反応が少ないから","HPVに感染する前にうつ必要があるから","大人になると筋肉が厚くなり、ワクチンが届かないから"],a:1,
+   hints:{0:"副反応の少なさは理由ではありません。ワクチンは<b>感染を予防</b>するもので、すでにある感染を治すものではありません。",2:"筋肉の厚さは関係ありません。"},
+   exp:"ワクチンは感染を<b>予防</b>するもので、治療薬ではありません。性交経験は高校生で女子14.8%・男子12.0%、17〜19歳では23.6%。ハイリスクHPV感染のピークは23〜26歳です。だから<b>その前</b>、標準的には中1でうちます。"});
+ }},
+ {h:"感染も、がんも、死亡も減る",r(box){
+  dotGrid(box);
+  const d=sheet(box,`<h3>英国：12〜13歳で9割がうった世代のその後</h3><p class="note">2001〜2024年のイングランド全国データ（Sasieni P, Falcaro M. Lancet 2026）。20〜24歳女性の子宮頸がん死亡は？</p>
+   <div class="readouts"><div class="ro"><span>ワクチンがなければ（予測）</span><b>23.1人</b></div><div class="ro"><span>実際の死亡</span><b data-real>?</b></div></div>
+   <div class="row"><button class="btn solid sm" type="button" data-rv>実際の数を見る</button></div><div class="fb"></div>`);
+  $("[data-rv]",d).addEventListener("click",e=>{e.target.disabled=true;$("[data-real]",d).textContent="0人";$("[data-real]",d).classList.add("good");win("死亡 100%減少");
+   $(".fb",d).innerHTML=coach("happy","20〜24歳では<b>0人</b>、死亡率は100%減少しました（25〜29歳も100%、30〜34歳は63%減少）。ワクチンは子宮頸がんの<b>死亡そのもの</b>を減らします。日本の症例対照研究でも、子宮頸がんと診断された8人は全員ワクチン非接種でした。","ok")});
+ }},
+ {h:"ワクチンと検診の両輪",r(box){
+  match(box,{key:"basic-two",q:"子宮頸がん対策。どちらにあたりますか。",opts:["ワクチン（一次予防）","検診（二次予防）"],
+   rows:[{t:"HPVの感染そのものを防ぐ",a:0},{t:"がんになる前の病変（CIN）を見つけて治す",a:1},{t:"中学1年生ごろにうつのが標準",a:0},{t:"20歳から定期的に受ける",a:1,why:"日本は検診の受診率もOECDの国々のなかで低い水準です。"},{t:"標的以外の型も一部防ぐ（クロスプロテクション）",a:0}],
+   exp:"<b>接種率</b>を上げることと、<b>検診受診率</b>を上げること。どちらも欠かせません。HPVは「科学的根拠に基づくがん予防法」（2026年6月）の「感染」の項目にも入っています。"});
+ }}
+ ],
+ take:["日本の15歳までの接種率は約36%で、学校接種の国（8割超）より低い。2013年6月の積極的勧奨の差し控えで、接種率は約70%から約1%に激減した。","若いうちにうつほど効く（英国：12〜13歳で87%）。ワクチンは感染を予防するもので、感染する前にうつ。","英国では20〜24歳の子宮頸がん死亡が予測23.1人から0人に。感染・がん・死亡のすべてが減る。","ワクチン（一次予防）と検診（二次予防）は両輪。"]},
+
+/* ---------------- 症例① 小6 ---------------- */
+{id:"hana",code:"HPV-01",chap:"1",title:"二種混合のついでに、ひとこと",sub:"接種の時期・回数・保護者の不安への答え方",kid:"hana",init:"ハ",
+ pt:{name:"ハナさん",age:"12歳 女子（小6）"},
+ steps:[
+ {h:"問診",r(box){
+  box.insertAdjacentHTML("beforeend",`<div class="scene" style="background-image:url('${IMG("cg_hana")}'),url('${IMG("bg_clinic")}')"><div class="scene-tag"><b>ハナさん</b><span>12歳 小6・母と来院</span></div></div>`);
+  sheet(box,`<div class="story"><i>お母さん</i>学校からお知らせが来たので、二種混合（DT）のワクチンをお願いします。</div>
+   <div class="story doc"><i>いぶき先生</i>はい、2期のDTですね。予診票と母子手帳を拝見します。……ところで、HPVワクチンのお知らせは届いていますか？</div>
+   <div class="story"><i>お母さん</i>届いていますけど……。昔、テレビで副作用のニュースを見て、怖いなと思っていて。</div>
+   <div class="story"><i>ハナさん</i>友だちのお姉ちゃんはうったって言ってた。わたしも、うつの？</div>
+   <div class="story"><i>お母さん</i>国が勧めるのをやめていた時期もありましたよね。結局、うったほうがいいんでしょうか。</div>`);
+  sheet(box,`<h3>予診票と母子手帳</h3><div class="vitals">
+   <div class="vital"><span>今日の接種</span><b>DT 2期（11〜12歳が標準）</b></div><div class="vital"><span>日本脳炎</span><b>2期まで済み</b></div>
+   <div class="vital"><span>HPVワクチン</span><b>未接種</b></div><div class="vital"><span>既往歴・アレルギー</span><b>なし</b></div>
+   <div class="vital"><span>体温</span><b>36.5℃</b></div><div class="vital"><span>体格</span><b>148cm・38kg</b></div></div>`);
+ }},
+ {h:"いつ、何回うつ？",r(box){
+  sheet(box,coach("normal","DTの2期は、子どもが受ける定期接種のなかで<b>最後から2番目</b>。そのあとに残るのはHPVワクチンだけです。だから、DTのときが説明の大チャンスなのです。"));
+  match(box,{key:"hana-age",q:"それぞれの定期接種の、標準的な時期はどれですか。",opts:["9〜10歳","11〜12歳","中1（13歳になる年度）"],
+   rows:[{t:"日本脳炎 2期",a:0},{t:"二種混合（DT）2期",a:1},{t:"HPVワクチン（女子）",a:2,why:"定期接種の対象は<b>小6〜高1相当</b>の女子。標準は13歳となる年度（中1）です。"}]});
+  schedule(box,{age0:12});
+  mcq(box,{key:"hana-dose",q:"ハナさん（12歳）が今から9価ワクチンを始めると、合計で何回ですか。",opts:["1回","2回","3回"],a:1,
+   hints:{0:"1回だけの接種は日本の用法ではありません。",2:"15歳以上で始めるときは3回（0・2・6か月）です。"},
+   exp:"9歳以上15歳未満で始めると、<b>2回</b>（1回目から6〜12か月あけて2回目）で済みます。15歳になってから始めると3回です。早く始めると回数も少なくてすみます。"});
+ }},
+ {h:"「副作用」の話を整理する",r(box){
+  sheet(box,`<h3>有害事象と副反応のちがい</h3><div class="tipbox"><b>有害事象</b>：ワクチン接種後に起きた、あらゆる好ましくない出来事。接種との因果関係は問わない。<br><b>副反応</b>：有害事象のうち、接種との因果関係が<b>否定できない</b>もの。</div>`);
+  match(box,{key:"hana-ae",q:"接種した次の週に起きた出来事。まず入れる箱はどれですか。",opts:["有害事象として報告・検討","明らかに副反応"],
+   rows:[{t:"接種した腕が赤く腫れて痛い（当日〜数日）",a:1,why:"注射部位の反応は頻度の高い副反応です。"},{t:"接種した3日後に自転車で転んで骨折した",a:0},{t:"接種した翌週から頭痛が続く",a:0,why:"時間的に近いだけでは、因果関係があるとはいえません。検討が必要です。"}],
+   exp:"「接種のあとに起きた」ことと「接種が原因」は別です。"});
+  const d=sheet(box,`<h3>数字で見る「多様な症状」</h3><p class="note">2014年11月までの厚生労働省の調査。</p>
+   <div class="funnel"><div style="--w:100%"><b>338万人</b><span>接種した人</span></div><div style="--w:62%"><b>2,584人</b><span>副反応疑いの報告（10万人あたり80人）</span></div><div style="--w:30%"><b>186人</b><span>「未回復」（10万人あたり5人）</span></div></div>`);
+  mcq(box,{key:"hana-sobue",q:"ワクチンを<b>うっていない</b>人にも、同じような症状は起こるでしょうか（厚労省・祖父江班の全国疫学調査）。",
+   opts:["起こらない。ワクチンにしかない症状だ","起こる。非接種の人にも一定数いる","調べる方法がない"],a:1,
+   hints:{0:"「ワクチン導入前にはなかった新しい病気」という主張もありましたが、全国調査で否定されています。",2:"難病の全国疫学調査の手法を使って、全国規模で調べられました。"},
+   exp:"非接種でも同様の症状を示す人がいて、年間の発症率は<b>10万人あたり7人</b>と推計されました（Fukushima W, et al. J Epidemiol 2022）。接種の後に<b>たまたま</b>起こりうる出来事です（temporally related but not causally）。"});
+ }},
+ {h:"お母さんの不安に答える",r(box){
+  mcq(box,{key:"hana-trust",q:"HPVワクチンについて、保護者がいちばん信頼する情報源はどれですか（2024年度アンケート）。",opts:["SNS","テレビのニュース","医師（かかりつけ医）","新聞"],a:2,
+   exp:"保護者がもっとも信頼しているのは<b>かかりつけ医</b>です。接種の半分は一般内科（99床以下）、小児科は19%。<b>接種率が低いのは、小児科医の課題</b>でもあります。"});
+  order(box,{key:"hana-eri",q:"共感的反駁面接法（ERI）。正しい順に並べましょう。",
+   items:["共感的に受け止める（信頼関係を築く）","視点を理解する（懸念の背景を探る）","誤情報を訂正する（科学的根拠を共有）","自己決定を支援する（前向きな決定を後押し）"],
+   exp:"まず共感し、理解したうえで、誤情報を科学的根拠とともに正します。最後に決めるのは本人と家族です。動機づけ面接法（MI）を使った大規模RCTでは、接種開始率が9.5ポイント上がりました。"});
+  mcq(box,{key:"hana-say",q:"お母さんへの最初のひとことに、いちばん合うのはどれですか。",
+   opts:["「テレビの話はデマです。うってください」","「ニュースを見たら心配になりますよね。どんなところが一番気になりますか？」","「うつかどうかはご家庭で決めてください」"],a:1,
+   hints:{0:"いきなり否定すると、不安な気持ちはかえって固まります。まず受け止めましょう。",2:"突き放すと、相談先を失います。医師からの情報は一番信頼されています。"},
+   exp:"まず<b>共感して受け止め</b>、懸念の中身を聞きます。今日はDTをうって、次回HPVワクチンを始める予約をとりました。"});
+ }}
+ ],
+ take:["HPVワクチンは子どもが受ける最後の定期接種。DT 2期（11〜12歳）のときに必ず説明する。","対象は小6〜高1相当の女子、標準は中1。9価は15歳未満で始めれば2回、15歳以上なら3回。","有害事象と副反応は別もの。非接種でも同様の症状は年間10万人あたり7人に起こる。","保護者が最も信頼するのはかかりつけ医。共感→理解→訂正→自己決定の支援（ERI）。"]},
+
+/* ---------------- 症例② 中3 ---------------- */
+{id:"rin",code:"HPV-02",chap:"2",title:"注射がこわい中学3年生",sub:"不安をへらす工夫・安全な接種手技・接種後の対応",kid:"rin",init:"リ",
+ pt:{name:"リンさん",age:"14歳 女子（中3）"},
+ steps:[
+ {h:"問診",r(box){
+  box.insertAdjacentHTML("beforeend",`<div class="scene" style="background-image:url('${IMG("cg_rin")}'),url('${IMG("bg_clinic")}')"><div class="scene-tag"><b>リンさん</b><span>14歳 中3・母と来院</span></div></div>`);
+  sheet(box,`<div class="story"><i>お母さん</i>HPVワクチンを受けさせたくて来ました。本人も納得はしているんですが……。</div>
+   <div class="story"><i>リンさん</i>注射、ほんとうに苦手で。前に採血したとき、気持ち悪くなって倒れそうになったんです。</div>
+   <div class="story doc"><i>いぶき先生</i>話してくれてありがとう。そういう人は少なくないよ。今日は、それを前提に準備するね。</div>
+   <div class="story"><i>リンさん</i>待合室に同じ学校の子がいて……。見られるのもいやです。</div>
+   <div class="story"><i>お母さん</i>朝ごはんはあまり食べていません。緊張していて。</div>`);
+  sheet(box,`<h3>予診</h3><div class="vitals">
+   <div class="vital"><span>年齢</span><b>14歳（15歳未満 → 2回接種）</b></div><div class="vital"><span>体格</span><b>156cm・40kg（やせ型）</b></div>
+   <div class="vital"><span>既往</span><b>採血で迷走神経反射の疑い</b></div><div class="vital"><span>アレルギー</span><b>なし</b></div>
+   <div class="vital"><span>体温・脈拍</span><b>36.6℃・96/分（緊張）</b></div><div class="vital"><span>食事</span><b>朝食少なめ・水分少ない</b></div></div>`);
+ }},
+ {h:"不安をへらす準備",r(box){
+  sheet(box,coach("normal","接種前の<b>不安</b>は、副反応の報告を増やすことがわかっています（デンマークの研究）。不安が<b>免疫ストレス関連反応（ISRR）</b>を引き起こすこともあります。WHOは、ワクチンそのものの作用ではなく心理的ストレスが原因、としています。"));
+  msq(box,{key:"rin-calm",q:"リンさんのために、今日やるとよい工夫はどれですか。",
+   items:[{t:"接種の30分前から、OS-1などで水分をとってもらう",c:1},{t:"プライバシースクリーンで、ほかの人から見えないようにする",c:1},{t:"「チクッとするけど、すぐ終わるよ」と痛みを事前に説明する",c:1},{t:"会話・音楽・ストレスボールで注意をそらす",c:1},{t:"待合で長く待たせず、先に案内する",c:1,why:"大人数・長時間の待機は不安を増やします。"},{t:"「全然痛くないよ」と言い切る",c:0,why:"実際と違うと信頼を失います。軽い局所の不快感が生じることは事前に伝えます。"},{t:"立ったまま、さっとうつ",c:0,why:"医師も患者さんも<b>座って</b>接種します。"},{t:"副作用の可能性を、まれなものまで全部くわしく説明する",c:0,why:"不安を強めすぎないよう、頻度の高いもの（局所の反応など）にとどめ、神経症状などは聞かれたら答えます。"}],
+   exp:"オーストラリアの HPV.edu 研究（40校、6,967人）では、接種前の教育で不安スコアが下がり、自己効力感が上がり、効果は3回の接種を通じて続きました。<b>朝の時間帯</b>のほうが落ち着いているという観察もあります。"});
+ }},
+ {h:"うつ場所を決める",r(box){
+  sheet(box,coach("normal","安全な<b>手技</b>も、接種率を上げるために大切です。三角筋への筋注で起こりうる合併症は、<b>SIRVA</b>（肩の障害）・<b>腋窩神経障害</b>・<b>橈骨神経障害</b>。手は真下にだらんと垂らしてもらいます。"));
+  armSite(box,{key:"rin-site"});
+ }},
+ {h:"針と角度",r(box){
+  match(box,{key:"rin-needle",q:"リンさん（やせ型）への筋注。それぞれ選びましょう。",
+   rows:[{t:"ふつうの体格の人の針",opts:["27G 19mm","24G 25mm","18G 38mm"],a:1,why:"筋注は24G 25mm（テルモの紫の針）でOK。"},
+    {t:"やせ型のリンさんの針",opts:["25mmのまま","16mmを検討する","38mmに長くする"],a:1,why:"やせている人では、骨に当たらないよう針を付け替えましょう。"},
+    {t:"針を刺す角度",opts:["15°（皮内）","45°（皮下）","90°（直角）"],a:2},
+    {t:"刺したあとの逆血の確認",opts:["必ず引いて確認する","不要"],a:1},
+    {t:"接種するときの姿勢",opts:["本人は立つ","本人も医師も座る","本人は座り、医師は立つ"],a:1}],
+   exp:"三角筋の両縁に手を添えると、位置決めがしやすくなります。"});
+ }},
+ {h:"うったあとに",r(box){
+  faintSim(box);
+  match(box,{key:"rin-ae",q:"接種後に注意すべき症状と、その対応を組み合わせましょう。",
+   opts:["仰臥位＋下肢挙上・経過観察","アドレナリン筋注（大腿前外側）","落ち着かせて深呼吸・側臥位","ABC評価・血糖測定・救急搬送","119番・胸骨圧迫・AED"],
+   rows:[{t:"迷走神経反射（接種直後〜30分）",a:0},{t:"アナフィラキシー（数分〜30分）",a:1,why:"Grade 3以上でアドレナリン（ボスミン®）筋注。投与量と部位は事前に確認しておきます。"},{t:"悪心・嘔吐",a:2,why:"必要ならメトクロプラミド（プリンペラン®）。"},{t:"意識障害・けいれん",a:3,why:"けいれんにはミダゾラム（ドルミカム®）かジアゼパム。救急要請をためらわない。"},{t:"心肺停止・重篤な事象（いつでも）",a:4}],
+   exp:"ほとんどは迷走神経反射です。でも、アナフィラキシー・けいれん・心肺停止を想定した<b>事前準備</b>と<b>初期対応</b>が、副反応そのものより大切です。"});
+ }}
+ ],
+ take:["接種前の不安は副反応の報告を増やす（ISRR）。水分、プライバシースクリーン、短い待機、痛みの事前説明、注意をそらす工夫で不安をへらす。","接種部位は、肩峰から下ろした線と前後の腋窩線の頂点を結ぶ線の交点。肩峰から3cm以内はSIRVA、低すぎると橈骨神経。","針は24G 25mm（やせ型は16mm）、直角90°、逆血の確認は不要。本人も医師も座って接種。","失神には仰臥位と下肢挙上。アナフィラキシーにはアドレナリン筋注。事前準備と初期対応がいちばん大切。"]},
+
+/* ---------------- 症例③ 高1 ---------------- */
+{id:"mei",code:"HPV-03",chap:"3",title:"2回目のあとから肩が上がらない",sub:"接種後の症状にどう向き合うか",kid:"mei",init:"メ",
+ pt:{name:"メイさん",age:"15歳 女子（高1）"},
+ steps:[
+ {h:"問診",r(box){
+  box.insertAdjacentHTML("beforeend",`<div class="scene" style="background-image:url('${IMG("cg_mei")}'),url('${IMG("bg_clinic")}')"><div class="scene-tag"><b>メイさん</b><span>15歳 高1・母と来院</span></div></div>`);
+  sheet(box,`<div class="story"><i>お母さん</i>高1になってからHPVワクチンを始めました。別の医院で2回うったんですが、2回目のあとから左の肩が痛いと言うんです。</div>
+   <div class="story"><i>メイさん</i>腕を横に上げると痛くて、髪が結べない。夜も、左を下にすると痛いです。</div>
+   <div class="story doc"><i>いぶき先生</i>うったのは、肩のどのあたりでしたか？</div>
+   <div class="story"><i>メイさん</i>このへん……かなり上のほう（肩の先から指2本ぶんくらい下を指す）。</div>
+   <div class="story"><i>お母さん</i>ネットで「副作用で歩けなくなった」という話を見て、もう心配で。3回目は、うたないほうがいいですよね？</div>`);
+  sheet(box,`<h3>診察</h3><div class="vitals">
+   <div class="vital"><span>接種部位</span><b>肩峰から約2cm下（左）</b></div><div class="vital"><span>肩の動き</span><b>外転・挙上で痛み、可動域の制限</b></div>
+   <div class="vital"><span>しびれ・脱力</span><b>なし</b></div><div class="vital"><span>発熱・腫れ・発赤</span><b>なし</b></div>
+   <div class="vital"><span>ほかの関節・皮膚</span><b>異常なし</b></div><div class="vital"><span>全身状態</span><b>良好。学校には通えている</b></div></div>`);
+ }},
+ {h:"何が起きている？",r(box){
+  mcq(box,{key:"mei-dx",q:"いちばん考えたいのはどれですか。",opts:["SIRVA（ワクチン接種に関連した肩の障害）","HPVワクチンによる「多様な症状」","橈骨神経障害"],a:0,
+   hints:{1:"まず、体の所見を見ましょう。接種部位が高く、肩の動きで痛みがあり、局所の説明がつきます。",2:"しびれ・脱力はなく、痛みは肩関節の動きと関係しています。橈骨神経はもっと下を走ります。"},
+   exp:"肩峰から3cm以内の接種で、肩峰下滑液包などに炎症（肩関節周囲炎・滑液包炎・腱板炎）が起きた<b>SIRVA</b>を考えます。整形外科に相談します。"});
+  sheet(box,coach("normal","宮崎先生の施設では、3年間で14人が「副作用」として紹介されました。いちばん多かったのは<b>SIRVA（6/14人）</b>。そして、<b>まったく別の病気</b>が見つかった人もいました。"));
+  msq(box,{key:"mei-other",q:"「副作用で紹介された」けれど、調べると別の病気だったものはどれでしょう。",
+   items:[{t:"歩行困難 → 副腎低形成症",c:1},{t:"湿疹 → IgA血管炎",c:1},{t:"関節痛 → 若年性特発性関節炎（JIA）",c:1},{t:"左肩の痛み → SIRVA",c:0,why:"SIRVAは接種手技に関連した障害です。"}],
+   exp:"接種の後に起きたことを、すべて「副作用」とまとめてしまうと、<b>治療できる病気を見逃します</b>。逆に「気のせい」と片づけてもいけません。ふつうの診療と同じように、ていねいに鑑別します。"});
+ }},
+ {h:"どこにつなぐ？",r(box){
+  sheet(box,`<h3>相談の窓口は小児科思春期科</h3><p class="note">近畿大学病院の例。窓口が受けて、症状に合わせて各科にコンサルテーションします。</p>`);
+  match(box,{key:"mei-dept",q:"症状に合わせて、相談する診療科を選びましょう。",opts:["整形外科","脳神経内科","麻酔科","メンタルヘルス科","産科婦人科"],
+   rows:[{t:"接種した肩の痛み・可動域の制限",a:0},{t:"しびれ・脱力・手のふるえ",a:1},{t:"長く続く痛み（慢性疼痛）",a:2},{t:"不安が強く、眠れない・気分が落ちこむ",a:3},{t:"不正性器出血",a:4}],
+   exp:"ひとつの科で抱えこまず、<b>窓口をひとつ</b>にして連携します。本人と家族は「どこに行けばいいか」で迷わずにすみます。"});
+ }},
+ {h:"お母さんの心配に向き合う",r(box){
+  sheet(box,`<h3>日本で報告された症状のこれまで</h3><div class="tipbox">接種率：2013年以前 <b>70%以上</b> → 2013年以降 <b>1%未満</b>。<br>報告された症状（因果関係は確立せず）：起立性調節障害、慢性疼痛症候群、認知機能障害など。<br>症状のクラスターは<b>2010〜2015年に集中</b>し、<b>過去5年間で新たなクラスターは出ていません</b>。</div>`);
+  mcq(box,{key:"mei-cluster",q:"このデータから考えられることは何ですか。",opts:["ワクチンの成分が変わったので、症状が出なくなった","社会の不安が、症状の報告に影響した可能性がある","いまは報告の制度がなくなった"],a:1,
+   hints:{0:"ワクチンの成分は変わっていません。",2:"予防接種後副反応疑い報告制度は続いています。"},
+   exp:"報道で不安が高まった時期に報告が集中し、その後は新しい集まりが出ていません。<b>社会的な不安が症状の報告に影響した可能性</b>が示されています。"});
+  mcq(box,{key:"mei-3rd",q:"メイさんは15歳から始めたので3回接種です。3回目はどうしますか。",
+   opts:["肩が治るまで待ち、本人・家族と相談のうえ、正しい部位で3回目をうつ","副作用が出たので、もう二度とうたない","今日、同じ左肩の同じ場所にうつ"],a:0,
+   hints:{1:"SIRVAは接種部位の問題で、ワクチンそのものの作用ではありません。正しい手技でうてば防げます。",2:"痛みのある肩、そして同じ高い位置はさけます。"},
+   exp:"症状をきちんと評価し、治療につないだうえで、<b>正しい部位</b>で3回目を計画します。決めるのは本人と家族。医師はその決定を支えます。"});
+ }}
+ ],
+ take:["接種後の症状は、まず体の所見から。高い位置への接種で起きるSIRVAが最も多い（6/14人）。","「副作用」として紹介された中に、副腎低形成症・IgA血管炎・JIAなど別の病気が隠れていた。すべてを副作用とまとめない。","相談の窓口をひとつにして、整形外科・脳神経内科・麻酔科・メンタルヘルス科・産婦人科と連携する。","症状の報告は2010〜2015年に集中し、過去5年に新しいクラスターはない。社会の不安が影響した可能性。"]},
+
+/* ---------------- 外来をかえる ---------------- */
+{id:"clinic",code:"HPV-04",chap:"4",title:"外来をかえる：明日からの接種",sub:"接種率を上げる導線づくり",kid:null,init:"外",
+ steps:[
+ {h:"どの学年が、うっていない？",r(box){
+  const R=[["小6（12歳）",4.7],["中1（13歳）",13.6],["中2（14歳）",27.5],["中3（15歳）",32.1],["高1相当（16歳）",50.9]];
+  const d=sheet(box,`<h3>定期接種の対象者の累積初回接種率</h3><p class="note">2024年度上半期時点（厚生労働省）。棒をタップ。</p>
+   <div class="bars">${R.map(([n,v],i)=>`<button class="barrow" type="button" data-i="${i}" aria-pressed="false"><span>${n}</span><span class="tr"><i style="width:${v}%"></i></span><b>${v}%</b></button>`).join("")}</div><div class="fb"></div>`);
+  $$(".barrow",d).forEach(b=>b.addEventListener("click",()=>{$$(".barrow",d).forEach(x=>x.setAttribute("aria-pressed",x===b));play("tap");const i=+b.dataset.i;
+   $(".fb",d).innerHTML=coach(i<2?"think":"normal",i<2?`標準の中1でも<b>13.6%</b>。小6はわずか4.7%です。いちばん効く年齢で、ほとんどうたれていません。`:`学年が上がるほど増えますが、高1相当でも約半分。<b>「接種率が低い＝小児科医の課題」</b>です。`)}));
+ }},
+ {h:"外来に導線をつくる",r(box){
+  msq(box,{key:"clinic-path",q:"接種率を上げるために、外来でできることはどれですか。",
+   items:[{t:"DT 2期の接種のときに、必ずHPVワクチンを説明する",c:1},{t:"来院したら、母子手帳で接種歴を確認する",c:1},{t:"Web予約の画面にHPVワクチンを表示する",c:1},{t:"問診票にHPVワクチンのチェック欄をつくる",c:1},{t:"待合室で動画を流す・厚労省のリーフレットを配る",c:1},{t:"男性の接種についても理解を広める",c:1,why:"HPVは女性だけの問題ではありません。"},{t:"本人や家族が聞いてくるまで話題にしない",c:0,why:"保護者が最も信頼するのは医師からの情報です。待っていては届きません。"}],
+   exp:"宮崎先生の施設でのアンケートでは、障壁は「科学的エビデンス」より<b>「過去の印象」</b>でした。外来の流れの中に、何度も自然にHPVワクチンに触れる場面をつくります。"});
+  sheet(box,coach("happy","<b>10年後の子どもたちを守るのは、明日からの接種。</b><br>小児科医が「もう一歩」動けば、子どもたちの未来は確実に変わります。"));
+ }}
+ ],
+ take:["累積初回接種率は小6で4.7%、中1で13.6%、高1相当でも50.9%。いちばん効く年齢でうたれていない。","障壁は科学的エビデンスより「過去の印象」。","DT時の説明・母子手帳の確認・Web予約・問診票・待合動画・リーフレット。外来に導線をつくる。"]}
+];
+const CASE_BY=Object.fromEntries(CASES.map(c=>[c.id,c]));
+
+/* ============ 画面 ============ */
+const app=$("#app");let titleEl=null,S={view:"home",id:null,step:0};
+function stars(n){return `<span class="stars" aria-label="星${n||0}つ">${[1,2,3].map(i=>i<=(n||0)?"★":`<span class="off">★</span>`).join("")}</span>`}
+function totalStars(){return CASES.reduce((a,c)=>a+(PROG[c.id]||0),0)}
+function pctAll(){return Math.round(totalStars()/(CASES.length*3)*100)}
+function bgm(){try{BGM.want(titleEl&&!titleEl.hidden?"title":S.view==="home"?"day":S.view==="sum"?"epilogue":"notebook")}catch(e){}}
+
+function showTitle(){
+  const next=CASES.find(c=>!PROG[c.id]);
+  if(!titleEl){titleEl=document.createElement("div");titleEl.className="title";document.body.appendChild(titleEl)}
+  titleEl.innerHTML=`<div class="tstage">
+    <div class="tlogo"><span class="tag">「触って覚える！」シリーズ ・ 特別版 ・ HPVワクチン</span>
+      <img class="tlogoimg" src="${IMG("logo_hpv")}" alt="触って覚える！ HPVワクチンマスター" onerror="this.nextElementSibling.hidden=false;this.nextElementSibling.nextElementSibling.hidden=false;this.remove()">
+      <h1 class="series" hidden><span class="k1">触</span><span class="k2">っ</span><span class="k3">て</span><span class="k4">覚</span><span class="k1">え</span><span class="k2">る</span><span class="k3">！</span></h1>
+      <span class="name" hidden>HPVワクチンマスター</span></div>
+    <div class="tcast"><img class="tm" src="${ART("mascot_happy")}" alt=""><img src="${ART("doctor_normal")}" alt="いぶき先生"><img class="tn" src="${IMG("nurse_minami")}" alt="看護師ミナミ" onerror="this.remove()">
+      <svg class="tube" viewBox="0 0 80 120" aria-hidden="true"><path d="M40 60 C18 40 18 10 40 10 C62 10 62 40 40 60 Z" fill="none" stroke="#2E2545" stroke-width="12" stroke-linejoin="round"/><path d="M40 60 C18 40 18 10 40 10 C62 10 62 40 40 60 Z" fill="none" stroke="#1FA7B5" stroke-width="6" stroke-linejoin="round"/><path d="M40 60 L18 110 M40 60 L62 110" stroke="#2E2545" stroke-width="13" stroke-linecap="round"/><path d="M40 60 L18 110 M40 60 L62 110" stroke="#1FA7B5" stroke-width="7" stroke-linecap="round"/></svg></div>
+    <div class="tsay">特別版はHPVワクチン。データを動かし、肩にうって、3人の女の子と家族の「こわい」に向き合いましょう。</div>
+    <div class="tmenu">
+      <button class="tbtn go" type="button" data-t="go"><img src="${ART("icon_go")}" alt=""><span><b>${next?(totalStars()?"つづきから":"はじめる"):"もう一度あそぶ"}</b><i>${next?next.code+"　"+next.title:"すべての症例をクリア済み"}</i></span></button>
+      <button class="tbtn" type="button" data-t="list"><img src="${ART("icon_course")}" alt=""><span><b>症例の一覧</b><i>しくみ編、小6・中3・高1の3症例、外来編</i></span></button>
+      <button class="tbtn" type="button" data-t="about"><img src="${ART("icon_about")}" alt=""><span><b>このアプリについて</b><i>遊び方と出典</i></span></button>
+    </div>
+    <div class="tfoot"><div class="tprog"><i style="width:${pctAll()}%"></i></div><span class="tpct">★${totalStars()}/${CASES.length*3}</span>${sndBtn()}</div></div>`;
+  titleEl.hidden=false;
+  $$("[data-t]",titleEl).forEach(b=>b.addEventListener("click",()=>{play("tap");const t=b.dataset.t;
+    if(t==="about"){about();return}
+    titleEl.hidden=true;if(t==="go")openCase((next||CASES[0]).id);else home();}));
+  bgm();
+}
+function about(){
+  const m=document.createElement("div");m.className="modal";
+  m.innerHTML=`<div class="mbox" role="dialog" aria-modal="true" aria-labelledby="abH"><div class="mhead"><h3 id="abH">このアプリについて</h3><button type="button">とじる</button></div>
+   <div class="mbody">${coach("happy","「触って覚える！」シリーズの特別版、HPVワクチン編です。しくみ編で世界と日本のデータを動かしてから、小6・中3・高1の3人と家族に向き合い、最後に外来の流れを見直します。")}
+   <p><b>しくみ編</b>　各国の接種率、日本の歩み、接種した年齢と予防効果、感染・がん・死亡の減少、ワクチンと検診。<br><b>症例①（小6）</b>　接種の時期と回数、有害事象と副反応、保護者の不安への答え方（ERI）。<br><b>症例②（中3）</b>　不安をへらす準備、接種部位（SIRVA・神経障害）、針と角度、失神とアナフィラキシーへの対応。<br><b>症例③（高1）</b>　接種後の症状の鑑別、相談窓口と連携、3回目の計画。<br><b>外来編</b>　学年ごとの接種率と、外来の導線づくり。</p>
+   <p>一度目の解答で正解した割合で、症例ごとに★1〜3がつきます。進み具合はこの端末のブラウザに保存されます。</p>
+   <p class="note">内容は Vaccine Summit in Kobe（2026年9月5日）の講演「子宮頸がん撲滅に向けてのアプローチ ～小児科医の視点から～」（近畿大学小児科思春期科 宮崎紘平先生）のスライドをもとにしています。症例は学習用に作った架空のものです。主な出典：WHO HPV Dashboard、Falcaro M, et al. Lancet 2021、Kjaer SK, et al. JNCI 2021、Sasieni P, Falcaro M. Lancet 2026、Kurosawa M, et al. Cancer Sci 2022、Fukushima W, et al. J Epidemiol 2022、McRee AL, et al. Lancet Public Health 2020、厚生労働省 副反応検討部会資料。接種の用法・用量や定期接種の対象は変わることがあるため、実際の接種では最新の電子添文・定期接種実施要領と各施設の方針に従ってください。</p></div></div>`;
+  const close=()=>m.remove();m.addEventListener("click",e=>{if(e.target===m)close()});$(".mhead button",m).addEventListener("click",close);document.body.appendChild(m);
+}
+function home(){
+  S={view:"home",id:null,step:0};
+  const basic=CASES[0],cs=CASES.slice(1);
+  const item=c=>`<button class="item ${PROG[c.id]?"done":""}" type="button" data-chap="${c.chap}" data-id="${c.id}"><span class="ic">${c.kid?`<img src="${IMG("kid_"+c.kid+"_normal")}" alt="" onerror="this.replaceWith(document.createTextNode('${c.init}'))">`:`<img src="${ART("mascot_excited")}" alt="">`}</span>
+   <span class="tx"><small class="num">${c.code}${c.pt?"　"+c.pt.age:""}</small><b>${c.title}</b><small>${c.sub}</small></span>${stars(PROG[c.id])}</button>`;
+  app.innerHTML=`<div class="wrap">
+   <div class="home-hero"><div class="eyebrow">触って覚える！</div><h1>HPVワクチン<wbr>マスター</h1><p>10年後の子どもたちを守るのは、明日からの接種。</p>
+    <div class="bigprog"><div class="bar2"><i style="width:${pctAll()}%"></i></div><span class="pct">★${totalStars()}/${CASES.length*3}</span></div>
+    <div class="hrow"><button class="hbtn" type="button" data-h="title">タイトルへ</button><button class="hbtn" type="button" data-h="about">このアプリについて</button>${sndBtn()}</div>
+    <img class="hdoc" src="${ART("doctor_happy")}" alt=""></div>
+   <div class="cat" data-chap="0"><h2>まずはしくみ</h2><div class="list">${item(basic)}</div></div>
+   <div class="cat" data-chap="1"><h2>3人の女の子と家族に向き合う</h2><div class="list">${cs.slice(0,3).map(item).join("")}</div></div>
+   <div class="cat" data-chap="4"><h2>外来をかえる</h2><div class="list">${cs.slice(3).map(item).join("")}</div></div>
+   <p class="note" style="margin-top:18px">Vaccine Summit in Kobe 2026 の講演スライドをもとに作った学習用アプリです。症例は架空です。</p></div>`;
+  $$(".item",app).forEach(b=>b.addEventListener("click",()=>{play("tap");openCase(b.dataset.id)}));
+  $$("[data-h]",app).forEach(b=>b.addEventListener("click",()=>{play("tap");b.dataset.h==="about"?about():showTitle()}));
+  window.scrollTo(0,0);bgm();
+}
+function openCase(id){
+  const c=CASE_BY[id];G={ok:0,n:0,seen:new Set()};S={view:"case",id,step:0};
+  try{BGM.jingle("chapter")}catch(e){}
+  renderStep();
+}
+function renderStep(){
+  const c=CASE_BY[S.id],n=c.steps.length,last=S.step>=n;
+  S.view=last?"sum":"case";
+  app.innerHTML=`<div data-chap="${c.chap}"><div class="top"><div class="wrap"><div class="bar"><button class="back" type="button" data-back>‹ 一覧</button><h1>${c.title}</h1><span class="badge">${c.code}</span></div>
+   <div class="stepper">${c.steps.map((s,i)=>`<button type="button" class="${i<S.step?"done":i===S.step?"now":""}" data-go="${i}" aria-label="${i+1}. ${s.h}"></button>`).join("")}<button type="button" class="${last?"now":""}" data-go="${n}" aria-label="まとめ"></button></div></div></div>
+   <div class="wrap"><div class="sec" data-box></div></div></div>`;
+  const box=$("[data-box]",app);
+  if(!last){
+    box.insertAdjacentHTML("beforeend",`<div class="stephead"><span class="stepno">STEP ${S.step+1}/${n}</span><h2>${c.steps[S.step].h}</h2></div>`);
+    c.steps[S.step].r(box);
+    if(c.steps[S.step].h==="問診")talk(box);
+    box.insertAdjacentHTML("beforeend",`<div class="nav"><button class="btn" type="button" data-prev ${S.step?"":"disabled"}>‹ もどる</button><button class="btn solid" type="button" data-next>${S.step===n-1?"まとめへ ›":"つぎへ ›"}</button></div>`);
+  }else summary(c,box);
+  $("[data-back]",app).addEventListener("click",()=>{play("tap");home()});
+  $$("[data-go]",app).forEach(b=>b.addEventListener("click",()=>{S.step=+b.dataset.go;play("tap");renderStep()}));
+  const pv=$("[data-prev]",app),nx=$("[data-next]",app);
+  if(pv)pv.addEventListener("click",()=>{S.step--;play("tap");renderStep()});
+  if(nx)nx.addEventListener("click",()=>{S.step++;play("tap");renderStep()});
+  window.scrollTo(0,0);bgm();
+}
+function summary(c,box){
+  const r=G.n?G.ok/G.n:0,st=G.n===0?1:r>=.85?3:r>=.6?2:1;
+  if(G.n)PROG[c.id]=Math.max(PROG[c.id]||0,st);save();
+  const idx=CASES.indexOf(c),nx=CASES[idx+1];
+  box.innerHTML=`<div class="sheet stack"><div class="result-top"><div style="flex:1;min-width:0"><span class="lbl">${c.code} クリア</span><h2 style="font-size:20px">${c.title}</h2>
+    <div class="row" style="margin-top:6px"><span class="big">${G.ok}<span style="font-size:24px">/${G.n}</span></span>${stars(st)}</div><p class="note">一度目で正解した問題の数</p></div>
+    <img src="${c.kid?IMG("kid_"+c.kid+"_happy"):ART("mascot_excited")}" alt="" onerror="this.src='${ART("doctor_happy")}'"></div></div>
+   <div class="sheet stack"><h3>覚えておくこと</h3><ul class="takeaways">${c.take.map(t=>`<li>${t}</li>`).join("")}</ul></div>
+   <div class="nav"><button class="btn" type="button" data-again>もう一度</button>${nx?`<button class="btn solid" type="button" data-nx>つぎ：${nx.code} ›</button>`:`<button class="btn solid" type="button" data-home>一覧へ</button>`}</div>`;
+  if(CASES.every(x=>PROG[x.id]))box.insertAdjacentHTML("afterbegin",`<div class="scene" style="background-image:url('${IMG("cg_epilogue")}'),url('${IMG("bg_clinic")}')"><div class="scene-tag"><b>全症例クリア！</b><span>3人とも、安心して接種を続けられました</span></div></div>`);
+  if(st===3)setTimeout(()=>win(c.code+" ★3つ！"),200);
+  $("[data-again]",box).addEventListener("click",()=>openCase(c.id));
+  const b=$("[data-nx]",box);if(b)b.addEventListener("click",()=>openCase(nx.id));
+  const h=$("[data-home]",box);if(h)h.addEventListener("click",home);
+}
+home();showTitle();
+</script>
+</body>
+</html>
